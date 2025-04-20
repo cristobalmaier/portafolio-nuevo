@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio </title>
+  <!-- Tailwind CSS (CDN for icons, output.css for styles) -->
+  <link rel="stylesheet" href="./src/output.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fondo: '#1F2937',
+            detalle: '#5C60DE',
+          },
+        },
+      },
+      darkMode: 'class',
+    };
+  </script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons.min.js"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-fondo dark:bg-gray-900 text-gray-100 dark:text-gray-100 transition-colors duration-300">
+  <div class="container mx-auto max-w-3xl px-4">
+    <!-- Toggle Dark/Light Mode -->
+    <button id="dark-toggle" class="fixed top-4 right-4 z-50 bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow-md">
+      <i class='bx bx-moon dark:hidden'></i>
+      <i class='bx bx-sun hidden dark:inline'></i>
+    </button>
+
+    <!-- Header -->
+    <header class="flex flex-col md:flex-row items-center gap-6 justify-start py-16">
+      <img src="./img/img-profile/profile.png" alt="Foto de perfil" class="w-40 h-40 rounded-full shadow-lg border-4 border-detalle bg-white">
+      <div class="flex flex-col items-center md:items-start">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2 text-white">Cristobal Maier</h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-6">I'm a passionate web development and design UI/UX.</p>
+        
+      </div>
+    </header>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="max-w-5xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-semibold mb-8 flex items-center gap-2 text-left">
+        Projects <i class='bx bxs-star text-detalle text-2xl'></i>
+      </h2>
+      <div class="flex flex-col gap-16">
+        <!-- Proyecto 1 -->
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <img src="https://i.imgur.com/6o5V3F4.png" alt="Gestor de inventario" class="w-full md:w-[420px] lg:w-[500px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900">
+          <div class="flex-1 flex flex-col gap-2">
+            <h3 class="text-4xl font-bold text-white mb-1 whitespace-nowrap">Gestor de Inventario</h3>
+            <p class="text-lg text-gray-200 mb-2">Sistema de un almacén, desarrollado para controlar el inventario.</p>
+            <div class="flex items-center gap-2 mb-4">
+              <!-- Python SVG -->
+              <span class="w-8 h-8 flex items-center" title="Python">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="16 16 32 32" class="w-6 h-6">
+                  <path fill="url(#a)" d="M31.885 16c-8.124 0-7.617 3.523-7.617 3.523l.01 3.65h7.752v1.095H21.197S16 23.678 16 31.876c0 8.196 4.537 7.906 4.537 7.906h2.708v-3.804s-.146-4.537 4.465-4.537h7.688s4.32.07 4.32-4.175v-7.019S40.374 16 31.885 16zm-4.275 2.454a1.394 1.394 0 1 1 0 2.79 1.393 1.393 0 0 1-1.395-1.395c0-.771.624-1.395 1.395-1.395z"/>
+                  <path fill="url(#b)" d="M32.115 47.833c8.124 0 7.617-3.523 7.617-3.523l-.01-3.65H31.97v-1.095h10.832S48 40.155 48 31.958c0-8.197-4.537-7.906-4.537-7.906h-2.708v3.803s.146 4.537-4.465 4.537h-7.688s-4.32-.07-4.32 4.175v7.019s.656 4.247 7.833 4.247zm4.275-2.454a1.393 1.393 0 0 1-1.395-1.395 1.394 1.394 0 1 1 1.395 1.395z"/>
+                  <defs><linearGradient id="a" x1="19.075" x2="34.898" y1="18.782" y2="34.658" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="b" x1="28.809" x2="45.803" y1="28.882" y2="45.163" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs>
+                </svg>
+              </span>
+            </div>
+            <div class="flex gap-3 mt-2">
+              <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition">Live <i class='bx bx-link-alt'></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Proyecto 2 -->
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <img src="./img/img-proyectos/generador-contrasenas.webp" alt="Generador de contraseñas" class="w-full md:w-[420px] lg:w-[500px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900">
+          <div class="flex-1 flex flex-col gap-2">
+            <h3 class="text-4xl font-bold text-white mb-1 whitespace-nowrap">Generador de contraseñas</h3>
+            <p class="text-lg text-gray-200 mb-2">Generar contraseñas personalizadas, seleccionando la longitud, mayúsculas, minúsculas, números y símbolos.</p>
+            <div class="flex items-center gap-2 mb-4">
+              <!-- HTML SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="HTML">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 520" class="w-7 h-7">
+                  <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
+                  <path fill="#ef652a" d="M226 472l149-41 35-394H226" />
+                  <path fill="#ecedee" d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"/>
+                  <path fill="#fff" d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"/>
+                </svg>
+              </span>
+              <!-- JavaScript SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="JavaScript">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" class="w-7 h-7">
+                  <path fill="#f0db4f" d="M0 0h1052v1052H0z"/>
+                  <path d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z" fill="#323330"/>
+                </svg>
+              </span>
+              <!-- SCSS SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="SCSS">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" class="w-7 h-7">
+                  <ellipse cx="526" cy="526" rx="526" ry="526" fill="#c6538c"/>
+                  <path fill="#fff" d="M805 678c-14-54-68-73-141-56-32 7-65 23-104 46l-18 10c-32 18-60 31-84 39-28 8-46 8-52-5-7-16 8-36 25-52 18-17 44-28 77-42l22-9c26-10 45-13 63-15 21-2 40-3 62-3 80 0 134 23 139 56 7 42-48 94-156 128-92 28-192 26-223-13-20-24-6-58 33-92l14-12c-32 7-60 15-84 25-47 19-84 44-96 74-13 31 4 66 41 85 49 27 140 27 234-2 138-41 231-120 213-181z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="flex gap-3 mt-2">
+              <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition">Code <i class='bx bxl-github'></i></a>
+              <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition">Live <i class='bx bx-link-alt'></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <img src="./img/img-proyectos/generador-contrasenas.webp" alt="Generador de contraseñas" class="w-full md:w-[420px] lg:w-[500px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900">
+          <div class="flex-1 flex flex-col gap-2">
+            <h3 class="text-4xl font-bold text-white mb-1 whitespace-nowrap">Gestor de Familia</h3>
+            <p class="text-lg text-gray-200 mb-2">Generar contraseñas personalizadas, seleccionando la longitud, mayúsculas, minúsculas, números y símbolos.</p>
+            <div class="flex items-center gap-2 mb-4">
+              <!-- HTML SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="HTML">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 520" class="w-7 h-7">
+                  <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
+                  <path fill="#ef652a" d="M226 472l149-41 35-394H226" />
+                  <path fill="#ecedee" d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"/>
+                  <path fill="#fff" d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"/>
+                </svg>
+              </span>
+              <!-- JavaScript SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="JavaScript">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" class="w-7 h-7">
+                  <path fill="#f0db4f" d="M0 0h1052v1052H0z"/>
+                  <path d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z" fill="#323330"/>
+                </svg>
+              </span>
+              <!-- SCSS SVG nuevo -->
+              <span class="w-8 h-8 flex items-center" title="SCSS">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" class="w-7 h-7">
+                  <ellipse cx="526" cy="526" rx="526" ry="526" fill="#c6538c"/>
+                  <path fill="#fff" d="M805 678c-14-54-68-73-141-56-32 7-65 23-104 46l-18 10c-32 18-60 31-84 39-28 8-46 8-52-5-7-16 8-36 25-52 18-17 44-28 77-42l22-9c26-10 45-13 63-15 21-2 40-3 62-3 80 0 134 23 139 56 7 42-48 94-156 128-92 28-192 26-223-13-20-24-6-58 33-92l14-12c-32 7-60 15-84 25-47 19-84 44-96 74-13 31 4 66 41 85 49 27 140 27 234-2 138-41 231-120 213-181z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="flex gap-3 mt-2">
+              <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition">Code <i class='bx bxl-github'></i></a>
+              <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition">Live <i class='bx bx-link-alt'></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Redes Sociales -->
+    <section id="redes" class="max-w-2xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-semibold mb-8 text-left">Redes Sociales</h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://github.com/tuusuario" target="_blank" class="flex items-center space-x-2 px-4 py-2 bg-gray-900 text-white rounded shadow hover:bg-gray-800">
+          <i class='bx bxl-github text-white text-2xl'></i> <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/tuusuario" target="_blank" class="flex items-center space-x-2 px-4 py-2 bg-blue-700 text-white rounded shadow hover:bg-blue-800">
+          <i class='bx bxl-linkedin text-white text-2xl'></i> <span>LinkedIn</span>
+        </a>
+        <a href="https://twitter.com/tuusuario" target="_blank" class="flex items-center space-x-2 px-4 py-2 bg-blue-400 text-white rounded shadow hover:bg-blue-500">
+          <i class='bx bxl-twitter text-white text-2xl'></i> <span>Twitter</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="max-w-2xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-semibold mb-8 text-left">Contacto</h2>
+      <form id="contact-form" class="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col gap-4">
+        <input type="text" name="nombre" placeholder="Tu Nombre" required class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none">
+        <input type="email" name="email" placeholder="Tu Email" required class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none">
+        <textarea name="mensaje" rows="4" placeholder="Tu Mensaje" required class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none"></textarea>
+        <button type="submit" class="px-4 py-2 bg-detalle text-white rounded hover:bg-indigo-700">Enviar</button>
+      </form>
+    </section>
+
+    <footer class="text-center py-6 text-gray-400">
+      2025 Tu Nombre. Todos los derechos reservados.
+    </footer>
+  </div>
+  <script src="./js/main.js"></script>
+  <script>feather.replace()</script>
+</body>
+
+</html>
