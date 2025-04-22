@@ -1,0 +1,27 @@
+  /* Animación personalizada para los íconos de tecnología */
+  .tech-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Efecto de onda en el botón de enviar */
+  @keyframes wave {
+    0% { box-shadow: 0 0 0 0 rgba(92, 96, 222, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(92, 96, 222, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(92, 96, 222, 0); }
+  }
+  
+  .wave-effect {
+    animation: wave 1.5s infinite;
+  }
+  
+  /* Efecto de brillo en los proyectos */
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Efecto de aparición suave para las secciones */
+  .section-transition {
+    transition: all 0.5s ease;
+  }

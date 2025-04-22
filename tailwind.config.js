@@ -1,21 +1,23 @@
+// tailwind.config.js
 module.exports = {
-    darkMode: 'class',
-    content: ["./*.html"],
-    theme: {
-      extend: {
-        fontFamily: {
-          montserrat: ['Montserrat', 'sans-serif'],
-        },
-        animation: {
-          'fade-in': 'fadeIn 1s ease-in-out',
-        },
-        keyframes: {
-          fadeIn: {
-            '0%': { opacity: '0' },
-            '100%': { opacity: '1' },
-          }
-        }
+  darkMode: 'class',
+  content: [
+    "./*.html",
+    "./js/**/*.js" // Asegúrate de incluir tus archivos JS
+  ],
+  theme: {
+    extend: {
+      colors: {
+        fondo: "#1F2937",
+        detalle: "#5C60DE",
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+      animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     }
-  }
-
+  },
+  
+}

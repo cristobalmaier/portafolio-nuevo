@@ -1,65 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio</title>
     <!-- Tailwind CSS (CDN for icons, output.css for styles) -->
     <link rel="stylesheet" href="./src/output.css" />
+    <link href="./src/animaciones.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1828/1828231.png" type="image/x-icon">
+    <!-- Configuración de Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
               fondo: "#1F2937",
               detalle: "#5C60DE",
             },
-          },
-        },
-        darkMode: "class",
-      };
+            fontFamily: {
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'fade-in-up': 'fadeInUp 0.6s ease-out',
+              'fade-in-down': 'fadeInDown 0.6s ease-out',
+              'float': 'float 3s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 2s infinite'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' }
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' }
+              }
+            }
+          }
+        }
+      }
     </script>
-    <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons.min.js"></script>
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
   </head>
-
-  <body
-    class="bg-fondo dark:bg-[#FFFFFF] text-gray-100 dark:text-gray-100 transition-colors duration-300 font-montserrat"
-  >
-    <div class="container mx-auto max-w-3xl px-4">
+  
+  <body class="bg-fondo dark:bg-[#FFFFFF] text-gray-100 dark:text-gray-100 transition-colors duration-300 font-montserrat">
+    <div class="container mx-auto max-w-4xl px-4">
       <!-- Header solo con el botón de modo claro/oscuro -->
       <header class="flex flex-row items-center justify-end py-6 px-4">
-        <button id="dark-toggle" class="p-2 text-2xl">
-          <span class="material-symbols-outlined dark:hidden">dark_mode</span>
-          <span
-            class="material-symbols-outlined hidden dark:inline dark:text-gray-950"
-            >light_mode</span
-          >
+        <button id="dark-toggle" class="p-2 text-2xl hover:animate-spin hover:duration-300">
+          <span class="material-symbols-outlined dark:hidden">
+            dark_mode
+          </span>
+          <span class="material-symbols-outlined hidden dark:inline dark:text-gray-950">
+            light_mode
+          </span>
         </button>
       </header>
-
+      
       <!-- Sobre mí: Foto de perfil y bloque de texto -->
-      <div class="flex flex-row items-center gap-8 py-10">
-        <img
-          src="./img/img-profile/profile.png"
-          alt="Foto de perfil"
-          class="w-40 h-40 rounded-full shadow-lg border-8 border-[#161E2D] dark:border-[#FFFFFF] bg-[#2C3545] dark:bg-[#D8DFF6]"
-        />
-        <div class="flex flex-col items-start ml-8">
-          <h1
-            class="text-4xl md:text-5xl font-bold mb-2 text-white dark:text-[#475569]"
-          >
+      <div class="flex flex-col md:flex-row items-center gap-8 py-10">
+        <img src="./img/img-profile/profile2.png" alt="Foto de perfil" 
+             class="w-52 h-52 rounded-full shadow-lg border-8 border-[#161E2D] dark:border-[#FFFFFF] bg-[#2C3545] dark:bg-[#D8DFF6]" />
+        <div class="flex flex-col items-start md:ml-8" >
+          <h1 class="text-4xl md:text-5xl font-bold mb-2 text-white dark:text-[#475569]">
             Cristobal Maier
           </h1>
           <p class="text-lg md:text-xl text-gray-200 mb-6 dark:text-gray-950">
@@ -67,402 +89,272 @@
           </p>
         </div>
       </div>
-
-      <hr
-        class="border border-dotted border-gray-300 dark:border-gray-600 rounded-md"
-      />
+      
+      <hr class="border border-dotted border-gray-300 dark:border-gray-600 rounded-md" />
+      
       <!-- Sección Proyectos -->
       <section id="proyectos" class="max-w-5xl mx-auto px-4 py-12">
-        <h2
-          class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-6 flex items-center gap-3"
-        >
-          Projects <i class="bx bxs-star text-3xl"></i>
+        <h2 class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-6 flex items-center gap-3" data-aos="fade-in">
+          Proyectos
+          <i class="bx bxs-star text-3xl animate-pulse-slow"></i>
         </h2>
+        
         <div class="flex flex-col gap-16">
           <!-- Proyecto 1 -->
-          <div class="flex flex-col md:flex-row gap-12 items-start">
-            <img
-              src="./img/img-proyectos/acordator-enlaces.webp"
-              alt="Acortador de Enlaces"
-              class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900"
-            />
-            <div class="flex-1 flex flex-col gap-2">
-              <h3
-                class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]"
-              >
+          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+               data-aos="fade-up" data-aos-delay="100">
+            <img src="./img/img-proyectos/acordator-enlaces.webp" alt="Acortador de Enlaces"
+                 class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
+            <div class="flex-1 flex flex-col gap-2 mb-4">
+              <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
                 Acortador de Enlaces
               </h3>
               <p class="text-lg text-gray-200 mb-2 dark:text-slate-600">
-                Un acortador de URLs moderno con funcionalidad de generación de
-                códigos QR y historial de enlaces.
+                Un acortador de URLs moderno con funcionalidad de generación de códigos
+                QR y historial de enlaces.
               </p>
-              <div class="flex items-center gap-2 mb-4">
-
-                <span class="w-8 h-8 flex items-center" title="Tailwind">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 520">
-                    <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
-                    <path fill="#ef652a" d="M226 472l149-41 35-394H226" />
-                    <path
-                      fill="#ecedee"
-                      d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"
-                    />
-                    <path
-                      fill="#fff"
-                      d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"
-                    />
-                  </svg>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="w-7 h-7 flex items-center tech-icon" title="HTML" data-aos="fade-right" data-aos-delay="200">
+                  <img src="./assets/html5.svg" alt="HTML5 Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <span class="w-8 h-8 flex items-center" title="Tailwind">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1052 1052"
-                    class="w-8 h-8"
-                  >
-                    <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
-                    <path
-                      d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
-                      fill="#323330"
-                    />
-                  </svg>
+                <span class="w-7 h-7 flex items-center tech-icon" title="Tailwind" data-aos="fade-right" data-aos-delay="250">
+                  <img src="./assets/tailwindcss.svg" alt="Tailwind Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <!-- Tailwind SVG -->
-                <span class="w-8 h-8 flex items-center" title="Tailwind">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 54 33"
-                  >
-                    <g clip-path="url(#a)">
-                      <path
-                        fill="#38bdf8"
-                        fill-rule="evenodd"
-                        d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
-                        clip-rule="evenodd"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="a">
-                        <path fill="#fff" d="M0 0h54v32.4H0z" />
-                      </clipPath>
-                    </defs>
-                  </svg>
+                <span class="w-7 h-7 flex items-center tech-icon" title="JavaScript" data-aos="fade-right" data-aos-delay="300">
+                  <img src="./assets/javascript.svg" alt="JavaScript Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
               </div>
               <div class="flex gap-3 mt-2">
-                <a
-                  href="#"
-                  class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white"
-                  >Code <i class="bx bxl-github"></i
-                ></a>
-                <a
-                  href="#"
-                  class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white"
-                  >Live <i class="bx bx-link-alt"></i
-                ></a>
+                <a href="https://github.com/cristobalmaier/acortador-enlances" 
+                   class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                  Code
+                  <i class="bx bxl-github"></i>
+                </a>
+                <a href="https://acortador-enlaces.netlify.app/" 
+                   class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                  Live
+                  <i class="bx bx-link-alt"></i>
+                </a>
               </div>
             </div>
           </div>
+          
           <!-- Proyecto 2 -->
-          <div class="flex flex-col md:flex-row gap-12 items-start">
-            <img
-              src="./img/img-proyectos/generador-contrasenas.webp"
-              alt="Generador de contraseñas"
-              class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900"
-            />
-            <div class="flex-1 flex flex-col gap-2">
-              <h3
-                class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]"
-              >
+          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+               data-aos="fade-up" data-aos-delay="150">
+            <img src="./img/img-proyectos/generador-contrasenas.webp" alt="Generador de contraseñas"
+                 class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
+            <div class="flex-1 flex flex-col gap-2 mb-4">
+              <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
                 Generador de contraseñas
               </h3>
               <p class="text-lg text-gray-200 mb-2 dark:text-gray-950">
-                Generar contraseñas personalizadas, seleccionando la longitud,
-                mayúsculas, minúsculas, números y símbolos.
+                Generar contraseñas personalizadas, seleccionando la longitud, mayúsculas,
+                minúsculas, números y símbolos.
               </p>
-              <div class="flex items-center gap-2 mb-4">
-                <!-- HTML SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="HTML">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 452 520"
-                    class="w-6 h-6"
-                  >
-                    <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
-                    <path fill="#ef652a" d="M226 472l149-41 35-394H226" />
-                    <path
-                      fill="#ecedee"
-                      d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"
-                    />
-                    <path
-                      fill="#fff"
-                      d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"
-                    />
-                  </svg>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="w-7 h-7 flex items-center justify-center tech-icon" title="HTML" data-aos="fade-right" data-aos-delay="200">
+                  <img src="./assets/html5.svg" alt="HTML5 Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <!-- JavaScript SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="JavaScript">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1052 1052"
-                    class="w-8 h-8"
-                  >
-                    <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
-                    <path
-                      d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
-                      fill="#323330"
-                    />
-                  </svg>
+                <span class="w-7 h-7 flex gap-3 items-center tech-icon" title="SCSS" data-aos="fade-right" data-aos-delay="250">
+                  <img src="./assets/sass.svg" alt="SASS Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <!-- SCSS SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="SCSS">
-                  <svg
-                    viewBox="0 0 512 384"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="512"
-                    height="384"
-                  >
-                    <path
-                      fill="#CF649A"
-                      d="M441 221c-18 0-34 4-47 10-5-9-9-17-10-24s-2-11-1-20 6-21 6-22c0 0-1-5-11-5-11 0-20 2-21 5l-4 15c-2 9-20 43-31 60-4-7-7-13-7-17-1-8-2-12-1-21s6-20 6-21-1-6-11-6c-11 0-20 2-21 5l-4 15-34 76-8 18c-2 4 0 0 0 1l-3 5-4 5s-1-7 1-16c3-19 12-49 12-51 0 0 2-5-6-8-7-3-9 2-10 2l-1 1s8-34-16-34c-14 0-35 17-45 31l-34 19-17 9-1-1c-29-31-82-52-79-93 0-15 6-54 101-102 79-39 141-28 152-4 16 34-33 97-115 106-31 3-47-9-51-13-4-5-5-5-7-4s-1 5 0 8c3 6 13 17 30 23 15 5 51 8 95-9 49-19 88-72 77-117-12-45-87-60-157-35-43 15-88 39-121 70-39 36-45 68-43 81 10 47 74 78 100 100l-3 2c-13 7-63 33-75 60-14 31 2 53 13 56 33 10 68-7 86-34 18-28 16-64 8-80l-1-1 11-6 18-10c-3 9-5 19-6 34-2 17 6 40 15 49 4 4 9 4 12 4 11 0 16-9 22-20l13-28s-8 41 13 41c7 0 15-9 18-14l1-1 1-2 20-37 25-57 5 20c2 8 7 16 10 24l-4 7-8 10c-10 12-23 26-24 30-2 5-2 8 2 11 3 2 8 2 13 2l18-4 17-9c10-7 16-18 15-32 0-7-3-15-6-22l3-4c16-23 28-49 28-49l5 21 9 20a89 89 0 0 0-27 36c-6 17-2 24 7 26 4 1 10-1 14-3 5-1 11-4 17-8 10-8 20-18 19-32 0-6-2-13-4-19 12-5 29-8 49-5 45 5 54 33 52 44-2 12-11 18-14 20l-4 4c1 2 2 2 5 2 3-1 23-10 24-31 1-28-25-58-71-57zM97 336c-14 16-35 23-44 17-9-5-6-29 13-46 11-10 25-20 34-26l9-5 1-1 3-1c6 24 0 45-16 62zm108-73c-5 13-16 45-22 43-6-1-9-26-2-50 4-12 13-26 18-32 8-9 17-12 19-8 3 5-10 39-13 47zm89 43-5 1v-2l16-17 9-11v1c0 14-14 24-20 28zm68-16c-2-1-1-5 4-16 2-5 7-13 15-20l2 9c0 18-13 24-21 27z"
-                    />
-                  </svg>
+                <span class="w-7 h-7 flex items-center tech-icon" title="JavaScript" data-aos="fade-right" data-aos-delay="300">
+                  <img src="./assets/javascript.svg" alt="JavaScript Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
               </div>
               <div class="flex gap-3 mt-2">
-                <a
-                  href="#"
-                  class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white"
-                  >Code <i class="bx bxl-github"></i
-                ></a>
-                <a
-                  href="#"
-                  class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white"
-                  >Live <i class="bx bx-link-alt"></i
-                ></a>
+                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                  Code
+                  <i class="bx bxl-github"></i>
+                </a>
+                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                  Live
+                  <i class="bx bx-link-alt"></i>
+                </a>
               </div>
             </div>
           </div>
-          <div class="flex flex-col md:flex-row gap-12 items-start">
-            <img
-              src="./img/img-proyectos/gestor-familia.webp"
-              alt="Generador de contraseñas"
-              class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900"
-            />
-            <div class="flex flex-col gap-0">
-              <h3
-                class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]"
-              >
+          
+          <!-- Proyecto 3 -->
+          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+               data-aos="fade-up" data-aos-delay="200">
+            <img src="./img/img-proyectos/gestor-familia.webp" alt="Lista del Super"
+                 class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
+            <div class="flex flex-col gap-2 mb-4">
+              <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
                 Lista del Super
               </h3>
               <p class="text-lg text-gray-200 mb-2 dark:text-gray-950">
-                Este programa ayuda a no olvidar las compras, permitiendo
-                gestionar listas personalizadas por familia y usuario.
+                Este programa ayuda a no olvidar las compras, permitiendo gestionar listas
+                personalizadas por familia y usuario.
               </p>
-              <div class="flex items-center gap-2 mb-4">
-                <!-- CSS SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="CSS">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="512"
-                    height="512"
-                    viewBox="0 0 512 512"
-                  >
-                    <path
-                      fill="#264de4"
-                      d="M71.357 460.819 30.272 0h451.456l-41.129 460.746L255.724 512z"
-                    />
-                    <path
-                      fill="#2965f1"
-                      d="m405.388 431.408 35.148-393.73H256v435.146z"
-                    />
-                    <path
-                      fill="#ebebeb"
-                      d="m124.46 208.59 5.065 56.517H256V208.59zm-5.041-57.875H256V94.197H114.281zM256 355.372l-.248.066-62.944-16.996-4.023-45.076h-56.736l7.919 88.741 115.772 32.14.26-.073z"
-                    />
-                    <path
-                      fill="#fff"
-                      d="M255.805 208.59v56.517H325.4l-6.56 73.299-63.035 17.013v58.8l115.864-32.112.85-9.549 13.28-148.792 1.38-15.176 10.203-114.393H255.805v56.518h79.639L330.3 208.59z"
-                    />
-                  </svg>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="w-8 h-8 flex items-center tech-icon" title="PHP" data-aos="fade-right" data-aos-delay="200">
+                  <img src="./assets/Php_dark.svg" alt="PHP Logo Dark" class="block dark:hidden w-full h-full object-contain hover:animate-bounce-slow" />
+                  <img src="./assets/Php_light.svg" alt="PHP Logo Light" class="hidden dark:block w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <!-- JavaScript SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="JavaScript">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1052 1052"
-                    class="w-8 h-8"
-                  >
-                    <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
-                    <path
-                      d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
-                      fill="#323330"
-                    />
-                  </svg>
+                <span class="w-7 h-7 flex items-center tech-icon" title="CSS" data-aos="fade-right" data-aos-delay="250">
+                  <img src="./assets/css_old.svg" alt="CSS Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
-                <!-- PHP SVG nuevo -->
-                <span class="w-8 h-8 flex items-center" title="PHP">
-                  <img src="./assets/Php_dark.svg" alt="PHP Logo Dark" class="w-6 h-7 block dark:hidden" />
-                  <img src="./assets/Php_light.svg" alt="PHP Logo Light" class="w-6 h-7 hidden dark:block" />
+                <span class="w-7 h-7 flex items-center tech-icon" title="JavaScript" data-aos="fade-right" data-aos-delay="300">
+                  <img src="./assets/javascript.svg" alt="JavaScript Logo" class="w-full h-full object-contain hover:animate-bounce-slow" />
                 </span>
               </div>
               <div class="flex gap-3 mt-2">
-                <a
-                  href="#"
-                  class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white"
-                  >Code <i class="bx bxl-github"></i
-                ></a>
-                
-                
+                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                  Code
+                  <i class="bx bxl-github"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-
+      
+      <!-- Sección Redes -->
       <section id="redes" class="max-w-5xl mx-auto px-4 py-12">
-        <h2
-          class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-6 flex items-center gap-3"
-        >
+        <h2 class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-10 flex items-center gap-3">
           Redes
-          <span class="material-symbols-outlined text-3xl">alternate_email</span>
+          <span class="material-symbols-outlined text-3xl">
+            alternate_email
+          </span>
         </h2>
+        
         <!-- Botones de redes sociales -->
         <div class="flex flex-col md:flex-row gap-6">
           <!-- Botón LinkedIn -->
-          <a
-            href="https://www.linkedin.com/in/tuusuario"
-            target="_blank"
-            class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-104 hover:shadow-lg shadow-sm w-full md:w-auto"
-          >
-            <span>
-              <svg
-                width="28"
-                height="28"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid"
-                viewBox="0 0 256 256"
-              >
-                <path
-                  fill="#0A66C2"
-                  d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453"
-                  fill="#0A66C2"
-                />
-              </svg>
-            </span>
-            <span class="font-semibold text-lg text-[#0A66C2]">LinkedIn</span>
-          </a>
-          <!-- Botón GitHub -->
-          <a
-            href="https://github.com/cristobalmaier"
-            target="_blank"
-            class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-104 hover:shadow-lg shadow-sm w-full md:w-auto"
-          >
+          <a href="https://www.linkedin.com/in/tuusuario" target="_blank" 
+             class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
+             data-aos="zoom-in" data-aos-delay="100">
             <span class="block dark:hidden">
-              <img
-                src="./assets/GitHub_dark.svg"
-                alt="GitHub Dark"
-                width="28"
-                height="28"
-              />
+              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" class="hover:animate-spin" />
             </span>
             <span class="hidden dark:block">
-              <img
-                src="./assets/GitHub_light.svg"
-                alt="GitHub Light"
-                width="28"
-                height="28"
-              />
+              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" class="hover:animate-spin" />
             </span>
-            <span
-              class="font-semibold text-lg text-gray-100 dark:text-gray-950"
-              >GitHub</span
-            >
+            <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
+              LinkedIn
+            </span>
           </a>
-          <!-- Botón Instagram -->
-          <a
-            href="https://instagram.com/crismaieer"
-            target="_blank"
-            class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-104 hover:shadow-lg shadow-sm w-full md:w-auto"
-          >
-            <span>
-              <svg
-                width="28"
-                height="28"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid"
-                viewBox="0 0 256 256"
-              >
-                <defs>
-                  <linearGradient
-                    id="insta-gradient"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1"
-                  >
-                    <stop offset="0%" stop-color="#f58529" />
-                    <stop offset="50%" stop-color="#dd2a7b" />
-                    <stop offset="100%" stop-color="#515bd4" />
-                  </linearGradient>
-                </defs>
-                <path
-                  fill="url(#insta-gradient)"
-                  d="M128 23.064c34.177 0 38.225.13 51.722.745 12.48.57 19.258 2.655 23.769 4.408 5.974 2.322 10.238 5.096 14.717 9.575 4.48 4.479 7.253 8.743 9.575 14.717 1.753 4.511 3.838 11.289 4.408 23.768.615 13.498.745 17.546.745 51.723 0 34.178-.13 38.226-.745 51.723-.57 12.48-2.655 19.257-4.408 23.768-2.322 5.974-5.096 10.239-9.575 14.718-4.479 4.479-8.743 7.253-14.717 9.574-4.511 1.753-11.289 3.839-23.769 4.408-13.495.616-17.543.746-51.722.746-34.18 0-38.228-.13-51.723-.746-12.48-.57-19.258-2.655-23.768-4.408-5.974-2.321-10.239-5.095-14.718-9.574-4.479-4.48-7.253-8.744-9.574-14.718-1.753-4.51-3.839-11.288-4.408-23.768-.616-13.497-.746-17.545-.746-51.723 0-34.177.13-38.225.746-51.723.57-12.48 2.655-19.258 4.408-23.769 2.321-5.974 5.095-10.238 9.574-14.717 4.48-4.48 8.744-7.253 14.718-9.575 4.51-1.753 11.288-3.838 23.768-4.408 13.497-.615 17.545-.745 51.723-.745M128 0C93.237 0 88.878.147 75.226.77c-13.625.622-22.93 2.786-31.071 5.95-8.418 3.271-15.556 7.648-22.672 14.764C14.367 28.6 9.991 35.738 6.72 44.155 3.555 52.297 1.392 61.602.77 75.226.147 88.878 0 93.237 0 128c0 34.763.147 39.122.77 52.774.622 13.625 2.785 22.93 5.95 31.071 3.27 8.417 7.647 15.556 14.763 22.672 7.116 7.116 14.254 11.492 22.672 14.764 8.142 3.165 17.446 5.328 31.07 5.95 13.653.623 18.012.77 52.775.77s39.122-.147 52.774-.77c13.624-.622 22.929-2.785 31.07-5.95 8.418-3.27 15.556-7.647 22.672-14.763 7.116-7.116 11.493-14.254 14.764-22.672 3.164-8.142 5.328-17.446 5.95-31.07.623-13.653.77-18.012.77-52.775s-.147-39.122-.77-52.774c-.622-13.624-2.786-22.929-5.95-31.071-3.271-8.418-7.648-15.556-14.764-22.672C227.4 14.368 220.262 9.99 211.845 6.72c-8.142-3.164-17.447-5.328-31.071-5.95C167.122.147 162.763 0 128 0Zm0 62.27C91.698 62.27 62.27 91.7 62.27 128c0 36.302 29.428 65.73 65.73 65.73 36.301 0 65.73-29.428 65.73-65.73 0-36.301-29.429-65.73-65.73-65.73Zm0 108.397c-23.564 0-42.667-19.103-42.667-42.667S104.436 85.333 128 85.333s42.667 19.103 42.667 42.667-19.103 42.667-42.667 42.667Zm83.686-110.994c0 8.484-6.876 15.36-15.36 15.36-8.483 0-15.36-6.876-15.36-15.36 0-8.483 6.877-15.36 15.36-15.36 8.484 0 15.36 6.877 15.36 15.36Z"
-                />
-              </svg>
+          
+          <!-- Botón GitHub -->
+          <a href="https://github.com/cristobalmaier" target="_blank" 
+             class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
+             data-aos="zoom-in" data-aos-delay="200">
+            <span class="block dark:hidden">
+              <img src="./assets/GitHub_dark.svg" alt="GitHub Dark" width="28" height="28" class="hover:animate-spin" />
             </span>
-            <span
-              class="font-semibold text-lg bg-clip-text text-transparent"
-              style="background-image: linear-gradient(90deg,#f58529,#dd2a7b,#515bd4);"
-              >Instagram</span
-            >
+            <span class="hidden dark:block">
+              <img src="./assets/GitHub_light.svg" alt="GitHub Light" width="28" height="28" class="hover:animate-spin" />
+            </span>
+            <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
+              GitHub
+            </span>
+          </a>
+          
+          <!-- Botón Instagram -->
+          <a href="https://instagram.com/crismaieer" target="_blank" 
+             class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
+             data-aos="zoom-in" data-aos-delay="300">
+            <span class="block dark:hidden">
+              <img src="./assets/Instagram_dark.svg" alt="Instagram Logo Dark" width="28" height="28" class="hover:animate-spin" />
+            </span>
+            <span class="hidden dark:block">
+              <img src="./assets/Instagram_light.svg" alt="Instagram Logo Light" width="28" height="28" class="hover:animate-spin" />
+            </span>
+            <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
+              Instagram
+            </span>
           </a>
         </div>
       </section>
       
       <!-- Sección Contacto -->
-      <section id="contacto" class="max-w-5xl mx-auto px-4 py-12">
-        <h2
-          class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-6 flex items-center gap-3"
-        >
+      <section id="contacto" class="max-w-3xl px-4 py-12">
+        <h2 class="font-bold text-3xl text-gray-100 dark:text-indigo-400 mb-8 flex items-center gap-3" data-aos="fade-in">
           Contacto
-          <span class="material-symbols-outlined text-3xl ">mail</span>
+          <span class="material-symbols-outlined text-3xl animate-wiggle">
+            mail
+          </span>
         </h2>
-        <form
-          id="contact-form"
-          class="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col gap-4"
-        >
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Tu Nombre"
-            required
-            class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Tu Email"
-            required
-            class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none"
-          />
-          <textarea
-            name="mensaje"
-            rows="4"
-            placeholder="Tu Mensaje"
-            required
-            class="px-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none"
-          ></textarea>
-          <button
-            type="submit"
-            class="px-4 py-2 bg-detalle text-white rounded hover:bg-indigo-700"
-          >
-            Enviar
-          </button>
-        </form>
+        
+        <div data-aos="fade-up">
+          <!-- Formulario mejorado -->
+          <form id="contact-form" class="bg-gray-800 dark:bg-gray-100 rounded-xl shadow-2xl p-8 flex flex-col gap-6 transition-all duration-300 w-full max-w-3xl mx-auto">
+            <div class="space-y-1" data-aos="fade-up" data-aos-delay="100">
+              <label for="nombre" class="block text-sm font-medium text-gray-300 dark:text-gray-700">
+                Nombre completo 
+              </label>
+              <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez"
+                     required minlength="3" 
+                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
+              <p class="text-xs text-red-400 error-message hidden">
+                Por favor ingresa tu nombre completo
+              </p>
+            </div>
+            
+            <div class="space-y-1" data-aos="fade-up" data-aos-delay="150">
+              <label for="email" class="block text-sm font-medium text-gray-300 dark:text-gray-700">
+                Correo electrónico 
+              </label>
+              <input type="email" id="email" name="email" placeholder="contacto@example.com"
+                     required 
+                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
+              <p class="text-xs text-red-400 error-message hidden">
+                Por favor ingresa un email válido
+              </p>
+            </div>
+            
+            <div class="space-y-1" data-aos="fade-up" data-aos-delay="200">
+              <label for="asunto" class="block text-sm font-medium text-gray-300 dark:text-gray-700">
+                Asunto
+              </label>
+              <select id="asunto" name="asunto" 
+                      class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg">
+                <option value="consulta">
+                  Consulta general
+                </option>
+                <option value="trabajo">
+                  Oferta de trabajo
+                </option>
+                <option value="proyecto">
+                  Propuesta de proyecto
+                </option>
+                <option value="otro">
+                  Otro
+                </option>
+              </select>
+            </div>
+            
+            <div class="space-y-1" data-aos="fade-up" data-aos-delay="250">
+              <label for="mensaje" class="block text-sm font-medium text-gray-300 dark:text-gray-700">
+                Mensaje 
+              </label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."
+                        required minlength="10" 
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg"></textarea>
+              <p class="text-xs text-red-400 error-message hidden">
+                El mensaje debe tener al menos 10 caracteres
+              </p>
+            </div>
+            
+            <button type="submit" 
+                    class="px-6 py-3 dark:bg-indigo-400 w-auto self-start dark:hover:bg-indigo-500 bg-white dark:text-white hover:bg-gray-300 text-gray-900 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 wave-effect hover:scale-105"
+                    data-aos="fade-up" data-aos-delay="300">
+              <span id="submit-text">
+                Enviar mensaje
+              </span>
+              <i id="submit-icon" class="bx bx-send text-xl "></i>
+              <i id="loading-icon" class="bx bx-loader-alt animate-spin text-xl hidden"></i>
+            </button>
+          </form>
+        </div>
       </section>
     </div>
-
+    
+    <!-- Scripts para animaciones -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
