@@ -15,11 +15,7 @@
     animation: wave 1.5s infinite;
   }
   
-  /* Efecto de brillo en los proyectos */
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
+  
   
   /* Efecto de aparición suave para las secciones */
   .section-transition {

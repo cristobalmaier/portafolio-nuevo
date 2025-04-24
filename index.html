@@ -8,7 +8,7 @@
     <!-- Tailwind CSS (CDN for icons, output.css for styles) -->
     <link rel="stylesheet" href="./src/output.css" />
     <link href="./src/animaciones.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1828/1828231.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
     <!-- Configuración de Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -66,7 +66,7 @@
     <div class="container mx-auto max-w-4xl px-4">
       <!-- Header solo con el botón de modo claro/oscuro -->
       <header class="flex flex-row items-center justify-end py-6 px-4">
-        <button id="dark-toggle" class="p-2 text-2xl hover:animate-spin hover:duration-300">
+        <button id="dark-toggle" class="p-2 text-2xl hover:duration-300">
           <span class="material-symbols-outlined dark:hidden">
             dark_mode
           </span>
@@ -78,10 +78,10 @@
       
       <!-- Sobre mí: Foto de perfil y bloque de texto -->
       <div class="flex flex-col md:flex-row items-center gap-8 py-10">
-        <img src="./img/img-profile/profile2.png" alt="Foto de perfil" 
-             class="w-52 h-52 rounded-full shadow-lg border-8 border-[#161E2D] dark:border-[#FFFFFF] bg-[#2C3545] dark:bg-[#D8DFF6]" />
+        <img src="./img/profile/profile2.png" alt="Foto de perfil" 
+             class="w-44 h-44 rounded-full shadow-lg border-8 border-[#161E2D] dark:border-[#FFFFFF] bg-[#2C3545] dark:bg-[#D8DFF6]" />
         <div class="flex flex-col items-start md:ml-8" >
-          <h1 class="text-4xl md:text-5xl font-bold mb-2 text-white dark:text-[#475569]">
+          <h1 class="text-4xl md:text-5xl font-bold mb-2 text-white dark:text-[#2f3846]">
             Cristobal Maier
           </h1>
           <p class="text-lg md:text-xl text-gray-200 mb-6 dark:text-gray-950">
@@ -101,9 +101,9 @@
         
         <div class="flex flex-col gap-16">
           <!-- Proyecto 1 -->
-          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+          <div class="flex flex-col md:flex-row gap-12 items-start  transition-all duration-300 rounded-xl p-2" 
                data-aos="fade-up" data-aos-delay="100">
-            <img src="./img/img-proyectos/acordator-enlaces.webp" alt="Acortador de Enlaces"
+            <img src="./img/proyectos/acordator-enlaces.webp" alt="Acortador de Enlaces"
                  class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
             <div class="flex-1 flex flex-col gap-2 mb-4">
               <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
@@ -140,9 +140,9 @@
           </div>
           
           <!-- Proyecto 2 -->
-          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+          <div class="flex flex-col md:flex-row gap-12 items-start  transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
                data-aos="fade-up" data-aos-delay="150">
-            <img src="./img/img-proyectos/generador-contrasenas.webp" alt="Generador de contraseñas"
+            <img src="./img/proyectos/generador-contrasenas.webp" alt="Generador de contraseñas"
                  class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
             <div class="flex-1 flex flex-col gap-2 mb-4">
               <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
@@ -164,11 +164,11 @@
                 </span>
               </div>
               <div class="flex gap-3 mt-2">
-                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                <a href="#https://github.com/cristobalmaier/generador-contrase-as" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
                   Code
                   <i class="bx bxl-github"></i>
                 </a>
-                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                <a href="#https://generador-contrasenas-cris.netlify.app/" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
                   Live
                   <i class="bx bx-link-alt"></i>
                 </a>
@@ -177,9 +177,9 @@
           </div>
           
           <!-- Proyecto 3 -->
-          <div class="flex flex-col md:flex-row gap-12 items-start project-card transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
+          <div class="flex flex-col md:flex-row gap-12 items-start transition-all duration-300 hover:shadow-xl rounded-xl p-2" 
                data-aos="fade-up" data-aos-delay="200">
-            <img src="./img/img-proyectos/gestor-familia.webp" alt="Lista del Super"
+            <img src="./img/proyectos/gestor-familia.webp" alt="Lista del Super"
                  class="w-full md:w-[350px] lg:w-[380px] h-56 md:h-64 object-cover rounded-xl shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105" />
             <div class="flex flex-col gap-2 mb-4">
               <h3 class="text-3xl font-bold text-white mb-1 whitespace-nowrap dark:text-[#2f3846]">
@@ -202,7 +202,7 @@
                 </span>
               </div>
               <div class="flex gap-3 mt-2">
-                <a href="#" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+                <a href="#https://github.com/cristobalmaier/super" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow hover:bg-gray-200 transition dark:bg-[#0F172A] dark:hover:bg-gray-950 dark:transition dark:text-white hover:-translate-y-1 hover:scale-105 duration-300">
                   Code
                   <i class="bx bxl-github"></i>
                 </a>
@@ -224,14 +224,14 @@
         <!-- Botones de redes sociales -->
         <div class="flex flex-col md:flex-row gap-6">
           <!-- Botón LinkedIn -->
-          <a href="https://www.linkedin.com/in/tuusuario" target="_blank" 
+          <a href="https://www.linkedin.com/in/cristobal-maier-3b5864356/" target="_blank" 
              class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
              data-aos="zoom-in" data-aos-delay="100">
             <span class="block dark:hidden">
-              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" />
             </span>
             <span class="hidden dark:block">
-              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/linkedin.svg" alt="LinkedIn Logo" width="28" height="28" />
             </span>
             <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
               LinkedIn
@@ -243,10 +243,10 @@
              class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
              data-aos="zoom-in" data-aos-delay="200">
             <span class="block dark:hidden">
-              <img src="./assets/GitHub_dark.svg" alt="GitHub Dark" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/GitHub_dark.svg" alt="GitHub Dark" width="28" height="28" />
             </span>
             <span class="hidden dark:block">
-              <img src="./assets/GitHub_light.svg" alt="GitHub Light" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/GitHub_light.svg" alt="GitHub Light" width="28" height="28" />
             </span>
             <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
               GitHub
@@ -258,10 +258,10 @@
              class="flex items-center gap-3 px-6 py-4 rounded-xl border border-gray-600 bg-transparent transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-sm w-full md:w-auto hover:bg-gray-700/10 dark:hover:bg-gray-100/10"
              data-aos="zoom-in" data-aos-delay="300">
             <span class="block dark:hidden">
-              <img src="./assets/Instagram_dark.svg" alt="Instagram Logo Dark" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/Instagram_dark.svg" alt="Instagram Logo Dark" width="28" height="28"  />
             </span>
             <span class="hidden dark:block">
-              <img src="./assets/Instagram_light.svg" alt="Instagram Logo Light" width="28" height="28" class="hover:animate-spin" />
+              <img src="./assets/Instagram_light.svg" alt="Instagram Logo Light" width="28" height="28" />
             </span>
             <span class="font-semibold text-lg text-gray-100 dark:text-gray-950">
               Instagram
@@ -281,14 +281,14 @@
         
         <div data-aos="fade-up">
           <!-- Formulario mejorado -->
-          <form id="contact-form" class="bg-gray-800 dark:bg-gray-100 rounded-xl shadow-2xl p-8 flex flex-col gap-6 transition-all duration-300 w-full max-w-3xl mx-auto">
+          <form id="contact-form" action="https://formspree.io/f/xknddvkd" method="POST" class="bg-gray-800 dark:bg-gray-100 rounded-xl shadow-2xl p-8 flex flex-col gap-6 transition-all duration-300 w-full max-w-3xl mx-auto">
             <div class="space-y-1" data-aos="fade-up" data-aos-delay="100">
               <label for="nombre" class="block text-sm font-medium text-gray-300 dark:text-gray-700">
                 Nombre completo 
               </label>
               <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez"
                      required minlength="3" 
-                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
+                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
               <p class="text-xs text-red-400 error-message hidden">
                 Por favor ingresa tu nombre completo
               </p>
@@ -300,7 +300,7 @@
               </label>
               <input type="email" id="email" name="email" placeholder="contacto@example.com"
                      required 
-                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
+                     class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg" />
               <p class="text-xs text-red-400 error-message hidden">
                 Por favor ingresa un email válido
               </p>
@@ -311,7 +311,7 @@
                 Asunto
               </label>
               <select id="asunto" name="asunto" 
-                      class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg">
+                      class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg">
                 <option value="consulta">
                   Consulta general
                 </option>
@@ -333,13 +333,13 @@
               </label>
               <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."
                         required minlength="10" 
-                        class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg"></textarea>
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 dark:bg-gray-200 text-gray-100 dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-detalle focus:border-transparent transition-all hover:shadow-lg"></textarea>
               <p class="text-xs text-red-400 error-message hidden">
                 El mensaje debe tener al menos 10 caracteres
               </p>
             </div>
             
-            <button type="submit" 
+            <button type="submit " 
                     class="px-6 py-3 dark:bg-indigo-400 w-auto self-start dark:hover:bg-indigo-500 bg-white dark:text-white hover:bg-gray-300 text-gray-900 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 wave-effect hover:scale-105"
                     data-aos="fade-up" data-aos-delay="300">
               <span id="submit-text">

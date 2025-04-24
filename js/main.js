@@ -30,60 +30,59 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Configuración del Formulario
-  const initContactForm = () => {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validación básica
-        let isValid = true;
-        const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
-        
-        inputs.forEach(input => {
-          if (!input.value.trim()) {
-            input.classList.add('border-red-500');
-            isValid = false;
-          } else {
-            input.classList.remove('border-red-500');
-          }
-        });
-        
-        if (isValid) {
-          const submitBtn = contactForm.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = `
-            <span class="flex items-center gap-2">
-              Enviando
-              <i class="bx bx-loader-alt animate-spin"></i>
-            </span>
-          `;
-          
-          // Simular envío (reemplazar con tu lógica real)
-          setTimeout(() => {
-            submitBtn.innerHTML = `
-              <span class="flex items-center gap-2">
-                Enviado!
-                <i class="bx bx-check"></i>
-              </span>
-            `;
-            setTimeout(() => {
-              contactForm.reset();
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalText;
-            }, 1500);
-          }, 2000);
-        }
-      });
-    }
-  };
+  // const initContactForm = () => {
+  //   const contactForm = document.getElementById('contact-form');
+  
+  //   if (contactForm) {
+  //     contactForm.addEventListener('submit', function(e) {
+  //       e.preventDefault();
+      
+  //       // Validación básica
+  //       let isValid = true;
+  //       const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
+      
+  //       inputs.forEach(input => {
+  //         if (!input.value.trim()) {
+  //           input.classList.add('border-red-500');
+  //           isValid = false;
+  //         } else {
+  //           input.classList.remove('border-red-500');
+  //         }
+  //       });
+  //       if (!isValid) return;
+      
+  //       // Animación de envío
+  //       const submitBtn = contactForm.querySelector('button[type="submit"]');
+  //       const originalText = submitBtn.innerHTML;
+  //       submitBtn.disabled = true;
+  //       submitBtn.innerHTML = `
+  //         <span class="flex items-center gap-2">
+  //           Enviando
+  //           <i class="bx bx-loader-alt animate-spin"></i>
+  //         </span>
+  //       `;
+      
+  //       // Simular envío (reemplazar con tu lógica real)
+  //       setTimeout(() => {
+  //         submitBtn.innerHTML = `
+  //           <span class="flex items-center gap-2">
+  //             Enviado!
+  //             <i class="bx bx-check"></i>
+  //           </span>
+  //         `;
+  //         setTimeout(() => {
+  //           contactForm.reset();
+  //           submitBtn.disabled = false;
+  //           submitBtn.innerHTML = originalText;
+  //         }, 1500);
+  //       }, 2000);
+  //     });
+  //   }
+  // };
 
   // Inicializar
   initDarkMode();
-  initContactForm();
+  // initContactForm();
 });
 
  // Inicializar AOS (Animate On Scroll)
@@ -112,29 +111,7 @@ document.querySelectorAll('.tech-icon').forEach(icon => {
   });
 });
 
-// Efecto de carga para el formulario
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const submitBtn = document.querySelector('#contact-form button[type="submit"]');
-  const submitText = document.getElementById('submit-text');
-  const submitIcon = document.getElementById('submit-icon');
-  const loadingIcon = document.getElementById('loading-icon');
-  
-  // Mostrar estado de carga
-  submitText.textContent = 'Enviando...';
-  submitIcon.classList.add('hidden');
-  loadingIcon.classList.remove('hidden');
-  
-  // Simular envío (en un caso real sería una petición AJAX)
-  setTimeout(() => {
-    submitText.textContent = '¡Mensaje enviado!';
-    loadingIcon.classList.add('hidden');
-    
-    // Resetear después de 2 segundos
-    setTimeout(() => {
-      submitText.textContent = 'Enviar mensaje';
-      submitIcon.classList.remove('hidden');
-      this.reset();
-    }, 2000);
-  }, 1500);
-});
+// document.getElementById('contact-form').addEventListener('submit', function(e) {
+//   // e.preventDefault();
+//   // ... (todo el contenido de esta función debe ser comentado o eliminado)
+// });
